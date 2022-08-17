@@ -1,13 +1,13 @@
-# {{Grammar Checker}} Method Design Recipe
+# {{track_tasks}} Method Design Recipe
 
 ## 1. Describe the Problem
 
 
 > As a user
 
-> So that I can improve my grammar
+> So that I can keep track of my tasks
 
-> I want to verify that a text starts with a capital letter and ends with a suitable sentence-ending punctuation mark.
+> I want to check if a text includes the string #TODO.
 
 
 ## 2. Design the Method Signature
@@ -17,10 +17,11 @@ _Include the name of the method, its parameters, return value, and side effects.
 ```ruby
 # EXAMPLE
 
-correct_grammar = grammar(text)
+check_todo = track_tasks(text)
 
-text: a string of text (e.g. "Hello World!")
-correct_grammar: a boolean that return true if text starts with capital letter and end with right puncuation mark.
+check_todo: a boolean that return true if text includes #TODO
+text: a string of text (e.g "Hello World")
+
 
 
 
@@ -34,10 +35,10 @@ _Make a list of examples of what the method will take and return._
 ```ruby
 # EXAMPLE
 
-grammar("") => false 
-grammar("Hello, how are you") => false
-grammar("My name is Abdullah.")=> true
-grammar("Hello, how are you?") => true
+track_tasks("take bins out") => false
+track_tasks("#TODO take bins out") => true
+track_tasks("") => false
+track_tasks(1283) => false
 
 
 ```
