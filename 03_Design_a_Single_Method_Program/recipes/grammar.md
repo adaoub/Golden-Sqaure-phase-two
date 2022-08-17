@@ -17,11 +17,12 @@ _Include the name of the method, its parameters, return value, and side effects.
 ```ruby
 # EXAMPLE
 
+correct_grammar = grammar(text)
 
-calculate_reading_time = reading_time(text)
+text: a string of text (e.g. "Hello World!")
+correct_grammar: a boolean that return true if text starts with capital letter and end with right puncuation mark.
 
-text: a string (e.g. "hello world")
-calculate_reading_time: a number, time taken to read text (e.g. 0.01 minutes)
+
 
 # The method doesn't print anything or have any other side-effects
 ```
@@ -33,9 +34,11 @@ _Make a list of examples of what the method will take and return._
 ```ruby
 # EXAMPLE
 
-reading_time("hello world") => 0.01
-reading_time("hello word agian again") => 0.02
-reading_time(100) => throws an error
+grammar("") => false 
+grammar("Hello, how are you") => false
+grammar("My name is Abdullah.")=> true
+grammar("Hello, how are you?") => true
+
 
 ```
 
