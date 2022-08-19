@@ -10,7 +10,10 @@ class LetterCounter
 
     @text.chars.each do |char|
       next unless is_letter?(char)
+      p counter[char]
       counter[char] = (counter[char] || 1) + 1
+      p counter
+
       if counter[char] > most_common_count
         most_common = char
         most_common_count = counter[char]
@@ -30,3 +33,5 @@ counter = LetterCounter.new("Digital Punk")
 p counter.calculate_most_common
 
 puts "Intended output:  # [2, 'i']"
+
+# Co-authored-by: Marina Ivanova <mariwkaivanova@gmail.com>
