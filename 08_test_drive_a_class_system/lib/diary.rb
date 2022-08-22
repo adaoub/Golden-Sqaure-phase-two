@@ -17,13 +17,20 @@ class Diary
     return total_words
   end
 
-  def reading_time(wpm) # wpm is an integer representing
-                        # the number of words the user can read per minute
-    # Returns an integer representing an estimate of the reading time in minutes
-    # if the user were to read all entries in the diary.
+  def reading_time(wpm)
+    (count_words / wpm.to_f).to_i
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
+    readable_entries = @list.select do |entry|
+      entry.reading_time(wpm) <= minutes
+    end
+    sorted_by_longest = readable_entries.sort_by do |entry|
+      entry.count_words
+    end
+
+    sorted_by_longest.last
+
     # `wpm` is an integer representing the number of words the user can read
     # per minute.
     # `minutes` is an integer representing the number of minutes the user
